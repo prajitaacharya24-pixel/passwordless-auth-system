@@ -1,73 +1,26 @@
-# React + TypeScript + Vite
+# React + TypeScript + Vite + Clerk (Passwordless Auth)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a **React + TypeScript + Vite** application integrated with **Clerk** for **passwordless email authentication**. Users can **sign up or sign in using email codes**, with no passwords required. This template provides a clean, modern, and secure authentication setup for building production-ready apps.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Passwordless Authentication**: Sign in / Sign up with **email codes**. No passwords.  
+- **React + TypeScript + Vite**: Modern stack with HMR and TypeScript type safety.  
+- **Secure Auth Flow**: Powered by [Clerk](https://clerk.com), handles sessions, JWTs, and user management.  
+- **Email Verification**: Automatic email verification during signup.  
+- **User Session Management**: Access current user info across the app using Clerk hooks.  
+- **Extensible Architecture**: Easy to expand with additional auth flows or backend APIs.  
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- **Frontend Framework**: React 18  
+- **Language**: TypeScript  
+- **Build Tool**: Vite  
+- **Authentication**: Clerk (Passwordless Email Login)  
+- **Styling**: Tailwind CSS (optional)  
+- **Linting**: ESLint with TypeScript rules  
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
